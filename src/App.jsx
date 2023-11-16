@@ -23,6 +23,10 @@ function App() {
     align-items: center;
     justify-content: space-evenly;
     padding: 3rem 0;
+
+    @media screen and (orientation: portrait) {
+      flex-direction: column;
+    }
   `;
   const EventCard = styled.div`
     position: relative;
