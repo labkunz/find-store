@@ -9,6 +9,10 @@ function App() {
       font-size: 5rem;
       font-weight: 700;
       letter-spacing: 0.5rem;
+
+      @media screen and (orientation: portrait) {
+        font-size: 3rem;
+      }
     }
   `;
   const Description = styled.div`
@@ -16,6 +20,10 @@ function App() {
     margin: 3rem auto 2rem;
     p {
       font-size: 2rem;
+    }
+
+    @media screen and (orientation: portrait) {
+      width: 100%;
     }
   `;
   const EventInfo = styled.div`
@@ -26,6 +34,7 @@ function App() {
 
     @media screen and (orientation: portrait) {
       flex-direction: column;
+      gap: 32px;
     }
   `;
   const EventCard = styled.div`
@@ -35,6 +44,11 @@ function App() {
     border-radius: 8px;
     border: 5px solid #FFB5B5;
     margin-bottom: 3rem;
+    ${
+      props => props.posWay === "left" ? 
+        `left: ${props.posNum}%;` :
+        `right: ${props.posNum}%;`
+    }
 
     .card_title {
       position: absolute;
@@ -90,7 +104,7 @@ function App() {
         <p>故事，藉由人們觀察並且流傳，透過時間的堆積下成為大家共同的回憶。如同這一路走來，在某個時間回頭望去發現自已已經留下些許足跡。在團隊中新添了一年經歷的成員們，這一年是怎麼樣的故事呢？你是否也會對其他人留下的足跡感到好奇並想要一探究竟呢？</p>
       </Description>
       <EventInfo>
-        <EventCard>
+        <EventCard posWay="left" posNum="-20">
           <div className="card_title">
             <p>時間</p>
           </div>
@@ -98,7 +112,7 @@ function App() {
             <p>12月開始</p>
           </div>
         </EventCard>
-        <EventCard>
+        <EventCard posWay="right" posNum="-20">
           <div className="card_title">
             <p>地點</p>
           </div>
@@ -106,7 +120,7 @@ function App() {
             <p>禾多辦公室5F</p>
           </div>
         </EventCard>
-        <EventCard>
+        <EventCard posWay="left" posNum="-20">
           <div className="card_title">
             <p>規則</p>
           </div>
